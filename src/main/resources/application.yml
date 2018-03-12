@@ -1,0 +1,15 @@
+spring:
+    cloud:
+        stream:
+            bindings:
+                couponUse:
+                    destination: dialogbox
+                couponUsed:
+                    destination: dialogbox
+                stockUsed:
+                    destination: dialogbox
+            kafka:
+                binder:
+                    autoCreateTopics: false
+                    brokers: 172.30.247.243:9092,172.30.247.244:9092:172.30.247.245:9092
+                    zkNodes: 172.30.247.243:2181,172.30.247.244:2181:172.30.247.245:2181

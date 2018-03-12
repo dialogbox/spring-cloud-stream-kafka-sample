@@ -23,10 +23,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DemoApplicationTests {
 
 	@Autowired
-	private Sink sink;
+	private CustomSink sink;
 
 	@Autowired
-	private Source source;
+	private CouponUseSource source;
 
 	@Autowired
 	private MessageCollector messageCollector;
@@ -39,7 +39,7 @@ public class DemoApplicationTests {
 	public void testWiring() {
 
 		Message<String> message = new GenericMessage<>("hello");
-		sink.input().send(message);
+		sink.stockUseInput().send(message);
 
 		someService.sendEvent();
 		Collection<Message<?>> messages = new ArrayList<>();

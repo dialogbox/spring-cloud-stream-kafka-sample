@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class SomeService {
   @Autowired
-  private Source source;
+  private CouponUseSource source;
 
   public void sendEvent() {
-    source.output().send(new GenericMessage<>("Hello World"));
-    source.output().send(new GenericMessage<>("Hello World"));
-    source.output().send(new GenericMessage<>("Hello World"));
+    source.output().send(new GenericMessage<>(new SomeEvent("jason", 100)));
+    source.output().send(new GenericMessage<>(new SomeEvent("kim", 150)));
+    source.output().send(new GenericMessage<>(new SomeEvent("lee", 2000)));
   }
 
 }
