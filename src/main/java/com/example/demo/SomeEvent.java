@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SomeEvent {
+  private Integer id;
   private String name;
   private Integer amount;
+  private Instant timestamp;
 }
