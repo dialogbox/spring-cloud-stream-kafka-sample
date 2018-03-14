@@ -40,6 +40,7 @@ dependencies {
 	testCompile('org.springframework.cloud:spring-cloud-stream-test-support')
 	compileOnly('org.projectlombok:lombok')
 	compile('org.springframework.boot:spring-boot-devtools')
+	compile('org.apache.commons:commons-lang3:3.7')
 }
 
 dependencyManagement {

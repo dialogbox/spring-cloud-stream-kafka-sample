@@ -26,7 +26,6 @@ public class DemoApplication {
 
 	@StreamListener(CustomInOut.INPUT_COUPON_USE)
 	public void processCouponUsed(Message<SomeEvent> message) {
-		log.info("Received Message: " + message.toString());
 		Acknowledgment acknowledgment = message.getHeaders().get(KafkaHeaders.ACKNOWLEDGMENT, Acknowledgment.class);
 		if (acknowledgment != null) {
 			SomeEvent someEvent = message.getPayload();

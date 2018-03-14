@@ -1,16 +1,13 @@
+logging.level.ROOT: WARN
+
 spring:
     cloud:
         stream:
             bindings:
                 couponUsing:
-                    destination: dialogbox
+                    destination: testtopic
                 couponUsed:
-                    destination: dialogbox
+                    destination: testtopic
                     consumer:
                       autoCommitOffset: false
                       autoCommitOnError: false
-            kafka:
-                binder:
-                    autoCreateTopics: false
-                    brokers: 172.30.247.243:9092,172.30.247.244:9092,172.30.247.245:9092
-                    zkNodes: 172.30.247.243:2181,172.30.247.244:2181,172.30.247.245:2181

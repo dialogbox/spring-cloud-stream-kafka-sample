@@ -1,6 +1,11 @@
 package com.example.demo;
 
+import static org.springframework.http.ResponseEntity.status;
+import static org.springframework.http.ResponseEntity.ok;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,9 +15,11 @@ public class TestController {
   SomeService someService;
 
   @GetMapping("/sendevent")
-  public String sendEvent() {
-    someService.sendEvent();
-    return "ok";
+  public ResponseEntity<String> sendEvent() {
+    if (someService.sendEvent())
+      return ok().body("ok");
+    else
+      return status(HttpStatus.SERVICE_UNAVAILABLE).body("Can not send event");
   }
 
 }
