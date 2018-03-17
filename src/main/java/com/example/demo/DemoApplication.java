@@ -28,7 +28,6 @@ public class DemoApplication {
 	public void processCouponUsed(Message<SomeEvent> message) {
 		Acknowledgment acknowledgment = message.getHeaders().get(KafkaHeaders.ACKNOWLEDGMENT, Acknowledgment.class);
 		if (acknowledgment != null) {
-			SomeEvent someEvent = message.getPayload();
 			log.info("Coupon has been used with ack: {}", message.getPayload());
 			acknowledgment.acknowledge();
 		} else {

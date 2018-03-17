@@ -1,13 +1,18 @@
-logging.level.ROOT: WARN
+logging.level:
+  ROOT: WARN
+  com.example.demo: INFO
 
-spring:
-    cloud:
-        stream:
-            bindings:
-                couponUsing:
-                    destination: testtopic
-                couponUsed:
-                    destination: testtopic
-                    consumer:
-                      autoCommitOffset: false
-                      autoCommitOnError: false
+spring.cloud.stream:
+  bindings:
+      couponUsing:
+          destination: testtopic
+      couponUsed:
+          destination: testtopic
+          group: myTestConsumers
+
+spring.cloud.stream.kafka:
+  bindings:
+      couponUsed:
+          consumer:
+            autoCommitOffset: false
+            autoCommitOnError: false
